@@ -2,6 +2,9 @@
 import Navbar from '../components/common/Navbar.vue'
 import Sidebar from '../components/common/Sidebar.vue'
 import BalanceCard from '../components/dashboard/BalanceCard.vue'
+import IncomeCard from '../components/dashboard/IncomeCard.vue'
+import ExpenseCard from '../components/dashboard/ExpenseCard.vue'
+import SavingsCard from '../components/dashboard/SavingsCard.vue'
 </script>
 
 <template>
@@ -16,6 +19,9 @@ import BalanceCard from '../components/dashboard/BalanceCard.vue'
 
 <div class="cards">
   <BalanceCard />
+    <IncomeCard />
+      <ExpenseCard />
+          <SavingsCard />
 </div>
 
 </main>
@@ -33,8 +39,9 @@ import BalanceCard from '../components/dashboard/BalanceCard.vue'
   padding: 20px;
 }
 .cards {
-  display: flex;
+ display: flex;
   gap: 20px;
   margin-top: 20px;
+  flex-wrap: wrap;
 }
 </style>
