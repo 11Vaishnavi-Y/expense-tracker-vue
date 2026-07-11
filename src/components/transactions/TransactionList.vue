@@ -23,7 +23,14 @@ const store = useExpenseStore()
     >
       <div class="transaction-details">
         <h4>{{ transaction.title }}</h4>
-        <p>{{ transaction.type }}</p>
+
+        <p class="type">
+          {{ transaction.type }}
+        </p>
+
+        <p class="date">
+          📅 {{ transaction.date }}
+        </p>
       </div>
 
       <div class="actions">
@@ -81,10 +88,16 @@ const store = useExpenseStore()
   margin: 0;
 }
 
-.transaction-details p {
-  margin: 5px 0 0;
+.type {
+  margin: 5px 0;
   color: #777;
   text-transform: capitalize;
+}
+
+.date {
+  margin: 0;
+  font-size: 13px;
+  color: #999;
 }
 
 .actions {

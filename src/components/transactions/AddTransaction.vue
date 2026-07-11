@@ -7,6 +7,7 @@ const store = useExpenseStore()
 const title = ref('')
 const amount = ref('')
 const type = ref('income')
+const date = ref(new Date().toISOString().split('T')[0])
 
 watch(
   () => store.editingTransaction,
@@ -15,12 +16,13 @@ watch(
       title.value = transaction.title
       amount.value = transaction.amount
       type.value = transaction.type
+      date.value = transaction.date
     }
   }
 )
 
 const saveTransaction = () => {
-  if (!title.value || !amount.value) {
+  if (!title.value || !amount.value || !date.value) {
     alert('Please fill all fields')
     return
   }
@@ -30,13 +32,15 @@ const saveTransaction = () => {
       id: store.editingTransaction.id,
       title: title.value,
       amount: Number(amount.value),
-      type: type.value
+      type: type.value,
+      date: date.value
     })
   } else {
     store.addTransaction({
       title: title.value,
       amount: Number(amount.value),
-      type: type.value
+      type: type.value,
+      date: date.value
     })
   }
 
@@ -44,6 +48,7 @@ const saveTransaction = () => {
   title.value = ''
   amount.value = ''
   type.value = 'income'
+  date.value = new Date().toISOString().split('T')[0]
 }
 </script>
 
@@ -69,6 +74,11 @@ const saveTransaction = () => {
       <option value="income">Income</option>
       <option value="expense">Expense</option>
     </select>
+
+    <input
+      v-model="date"
+      type="date"
+    />
 
     <button @click="saveTransaction">
       {{ store.editingTransaction ? 'Update Transaction' : 'Add Transaction' }}

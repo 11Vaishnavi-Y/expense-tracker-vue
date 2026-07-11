@@ -28,38 +28,46 @@ const chartData = computed(() => ({
         store.totalIncome,
         store.totalExpense
       ],
-      backgroundColor: [
-        '#4CAF50',
-        '#F44336'
-      ]
+      backgroundColor: ['#4CAF50', '#F44336']
     }
   ]
 }))
 
 const chartOptions = {
   responsive: true,
-  maintainAspectRatio: false
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      position: 'bottom'
+    }
+  }
 }
 </script>
 
 <template>
-  <div class="chart-container">
+  <div class="chart-card">
     <h2>Income vs Expense</h2>
 
-    <Pie
-      :data="chartData"
-      :options="chartOptions"
-    />
+    <div class="chart-wrapper">
+      <Pie
+        :data="chartData"
+        :options="chartOptions"
+      />
+    </div>
   </div>
 </template>
 
 <style scoped>
-.chart-container {
-  width: 500px;
-  height: 400px;
+.chart-card {
   background: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.chart-wrapper {
+  width: 450px;
+  height: 350px;
+  margin: auto;
 }
 </style>
