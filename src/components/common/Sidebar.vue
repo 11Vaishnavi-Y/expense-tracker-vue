@@ -43,6 +43,11 @@ ul {
 
 li {
   padding: 12px 0;
+    transition: all .3s ease;
+}
+
+li:hover {
+  transform: translateX(10px);
 }
 
 a {

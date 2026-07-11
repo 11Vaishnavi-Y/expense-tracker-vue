@@ -59,6 +59,15 @@ button {
   color: white;
   cursor: pointer;
   border-radius: 5px;
+ transition: all .25s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(.95);
 }
 
 .danger-btn {

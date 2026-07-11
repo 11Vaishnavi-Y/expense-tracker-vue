@@ -21,5 +21,11 @@ const totalBalance = computed(() => store.totalBalance)
   border-radius: 10px;
   width: 220px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,.15);
 }
 </style>
