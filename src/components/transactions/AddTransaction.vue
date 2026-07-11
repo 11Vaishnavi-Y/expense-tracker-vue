@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useExpenseStore } from '../../store/expenseStore'
 
 const store = useExpenseStore()
@@ -8,18 +8,39 @@ const title = ref('')
 const amount = ref('')
 const type = ref('income')
 
-const addTransaction = () => {
+watch(
+  () => store.editingTransaction,
+  (transaction) => {
+    if (transaction) {
+      title.value = transaction.title
+      amount.value = transaction.amount
+      type.value = transaction.type
+    }
+  }
+)
+
+const saveTransaction = () => {
   if (!title.value || !amount.value) {
     alert('Please fill all fields')
     return
   }
 
-  store.addTransaction({
-    title: title.value,
-    amount: Number(amount.value),
-    type: type.value
-  })
+  if (store.editingTransaction) {
+    store.updateTransaction({
+      id: store.editingTransaction.id,
+      title: title.value,
+      amount: Number(amount.value),
+      type: type.value
+    })
+  } else {
+    store.addTransaction({
+      title: title.value,
+      amount: Number(amount.value),
+      type: type.value
+    })
+  }
 
+  // Reset the form
   title.value = ''
   amount.value = ''
   type.value = 'income'
@@ -28,7 +49,9 @@ const addTransaction = () => {
 
 <template>
   <div class="transaction-form">
-    <h2>Add Transaction</h2>
+    <h2>
+      {{ store.editingTransaction ? 'Edit Transaction' : 'Add Transaction' }}
+    </h2>
 
     <input
       v-model="title"
@@ -47,8 +70,8 @@ const addTransaction = () => {
       <option value="expense">Expense</option>
     </select>
 
-    <button @click="addTransaction">
-      Add Transaction
+    <button @click="saveTransaction">
+      {{ store.editingTransaction ? 'Update Transaction' : 'Add Transaction' }}
     </button>
   </div>
 </template>

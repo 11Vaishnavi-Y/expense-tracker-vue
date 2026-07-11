@@ -35,6 +35,13 @@ const store = useExpenseStore()
         </span>
 
         <button
+          class="edit-btn"
+          @click="store.editTransaction(transaction)"
+        >
+          Edit
+        </button>
+
+        <button
           class="delete-btn"
           @click="store.deleteTransaction(transaction.id)"
         >
@@ -83,7 +90,7 @@ const store = useExpenseStore()
 .actions {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .income {
@@ -94,6 +101,20 @@ const store = useExpenseStore()
 .expense {
   color: red;
   font-weight: bold;
+}
+
+.edit-btn {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover {
+  background-color: #1565c0;
 }
 
 .delete-btn {
