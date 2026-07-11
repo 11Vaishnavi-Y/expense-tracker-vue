@@ -5,8 +5,7 @@ import BalanceCard from '../components/dashboard/BalanceCard.vue'
 import IncomeCard from '../components/dashboard/IncomeCard.vue'
 import ExpenseCard from '../components/dashboard/ExpenseCard.vue'
 import SavingsCard from '../components/dashboard/SavingsCard.vue'
-import AddTransaction from '../components/transactions/AddTransaction.vue'
-import TransactionList from '../components/transactions/TransactionList.vue'
+
 </script>
 
 <template>

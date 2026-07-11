@@ -1,12 +1,29 @@
+<script setup>
+</script>
+
 <template>
   <aside class="sidebar">
-    <ul>
-      <li>🏠 Dashboard</li>
-      <li>💰 Transactions</li>
-      <li>📊 Budget</li>
-      <li>📈 Reports</li>
-      <li>⚙️ Settings</li>
-    </ul>
+  <ul>
+  <li>
+    <router-link to="/">🏠 Dashboard</router-link>
+  </li>
+
+  <li>
+    <router-link to="/transactions">💰 Transactions</router-link>
+  </li>
+
+  <li>
+    <router-link to="/budget">📊 Budget</router-link>
+  </li>
+
+  <li>
+    <router-link to="/reports">📈 Reports</router-link>
+  </li>
+
+  <li>
+    <router-link to="/settings">⚙️ Settings</router-link>
+  </li>
+</ul>
   </aside>
 </template>
 
@@ -26,11 +43,20 @@ ul {
 
 li {
   padding: 12px 0;
-  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: black;
   font-weight: 500;
 }
 
-li:hover {
+a:hover {
   color: #1976d2;
+}
+
+.router-link-active {
+  color: #1976d2;
+  font-weight: bold;
 }
 </style>
