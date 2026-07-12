@@ -12,6 +12,7 @@ import SettingsPanel from '../components/settings/SettingsPanel.vue'
       <Sidebar />
 
       <main class="content">
+      
         <h1>Settings</h1>
 
         <SettingsPanel />
