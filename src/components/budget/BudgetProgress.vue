@@ -42,30 +42,58 @@ const progressColor = computed(() => {
 
 <style scoped>
 .progress-card {
-  margin-top: 30px;
+  margin-top: 35px;
   background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  transition: .3s;
+}
+
+.progress-card:hover {
+  box-shadow: 0 12px 24px rgba(0,0,0,.12);
+}
+
+.progress-card h2 {
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .progress-bar {
   width: 100%;
-  height: 25px;
-  background: #eee;
-  border-radius: 20px;
+  height: 28px;
+  background: #e9ecef;
+  border-radius: 30px;
   overflow: hidden;
   margin: 20px 0;
 }
 
 .progress-fill {
   height: 100%;
-  transition: width 0.5s ease;
+  border-radius: 30px;
+  transition: width .8s ease;
 }
 
 p {
   text-align: center;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: bold;
+  color: #444;
+}
+
+@media(max-width:576px){
+
+.progress-card{
+padding:18px;
+}
+
+.progress-bar{
+height:22px;
+}
+
+p{
+font-size:18px;
+}
+
 }
 </style>

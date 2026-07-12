@@ -60,14 +60,46 @@ const chartOptions = {
 <style scoped>
 .chart-card {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  transition: .3s;
+}
+
+.chart-card:hover {
+  box-shadow: 0 12px 24px rgba(0,0,0,.15);
+}
+
+.chart-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .chart-wrapper {
-  width: 450px;
-  height: 350px;
+  width: 100%;
+  max-width: 500px;
+  height: 380px;
   margin: auto;
+}
+
+@media(max-width:768px){
+
+.chart-wrapper{
+height:320px;
+}
+
+}
+
+@media(max-width:576px){
+
+.chart-card{
+padding:18px;
+}
+
+.chart-wrapper{
+height:260px;
+}
+
 }
 </style>

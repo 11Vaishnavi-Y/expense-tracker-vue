@@ -88,38 +88,85 @@ const saveTransaction = () => {
 
 <style scoped>
 .transaction-form {
-  background: white;
-  padding: 20px;
+  width: 100%;
+  max-width: 550px;
+  background: #fff;
+  padding: 25px;
   margin-top: 30px;
-  border-radius: 10px;
-  width: 350px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  transition: all .3s ease;
+}
+
+.transaction-form:hover {
+  box-shadow: 0 12px 24px rgba(0,0,0,.12);
 }
 
 .transaction-form h2 {
   margin-bottom: 20px;
+  color: #333;
 }
 
 .transaction-form input,
 .transaction-form select {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border: 1px solid #d6d6d6;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: .3s;
+}
+
+.transaction-form input:focus,
+.transaction-form select:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 8px rgba(25,118,210,.2);
 }
 
 .transaction-form button {
   width: 100%;
-  padding: 10px;
-  background: #4CAF50;
-  color: white;
+  padding: 13px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  background: #1976d2;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
+  transition: .3s;
 }
 
 .transaction-form button:hover {
-  background: #45a049;
+  background: #1565c0;
+  transform: translateY(-2px);
+}
+
+.transaction-form button:active {
+  transform: scale(.98);
+}
+
+@media(max-width:768px){
+
+.transaction-form{
+max-width:100%;
+padding:20px;
+}
+
+}
+
+@media(max-width:576px){
+
+.transaction-form{
+padding:16px;
+margin-top:20px;
+}
+
+.transaction-form h2{
+font-size:22px;
+}
+
 }
 </style>

@@ -62,22 +62,27 @@ const store = useExpenseStore()
 <style scoped>
 .transaction-list {
   margin-top: 30px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
 }
 
 .transaction-list h2 {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .transaction-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0;
-  border-bottom: 1px solid #eee;
+  padding: 18px 0;
+  border-bottom: 1px solid #ececec;
+  transition: .3s;
+}
+
+.transaction-item:hover {
+  transform: translateY(-2px);
 }
 
 .transaction-item:last-child {
@@ -86,67 +91,99 @@ const store = useExpenseStore()
 
 .transaction-details h4 {
   margin: 0;
+  font-size: 18px;
 }
 
 .type {
-  margin: 5px 0;
-  color: #777;
+  margin: 6px 0;
+  color: #666;
   text-transform: capitalize;
 }
 
 .date {
-  margin: 0;
-  font-size: 13px;
   color: #999;
+  font-size: 14px;
 }
 
 .actions {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .income {
-  color: green;
+  color: #2e7d32;
   font-weight: bold;
 }
 
 .expense {
-  color: red;
+  color: #d32f2f;
   font-weight: bold;
 }
 
-.edit-btn {
-  background-color: #1976d2;
-  color: white;
+.edit-btn,
+.delete-btn {
   border: none;
-  padding: 8px 14px;
-  border-radius: 5px;
+  color: white;
+  padding: 9px 16px;
+  border-radius: 7px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: .3s;
+}
+
+.edit-btn {
+  background: #1976d2;
 }
 
 .edit-btn:hover {
-  background-color: #1565c0;
+  background: #1565c0;
 }
 
 .delete-btn {
-  background-color: #e53935;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background: #e53935;
 }
 
 .delete-btn:hover {
-  background-color: #c62828;
+  background: #c62828;
 }
 
 .empty {
   text-align: center;
-  color: #777;
-  padding: 20px;
+  color: #888;
+  padding: 30px;
+}
+
+@media(max-width:768px){
+
+.transaction-item{
+flex-direction:column;
+align-items:flex-start;
+gap:15px;
+}
+
+.actions{
+width:100%;
+justify-content:space-between;
+}
+
+}
+
+@media(max-width:576px){
+
+.transaction-list{
+padding:18px;
+}
+
+.actions{
+flex-direction:column;
+align-items:stretch;
+}
+
+.edit-btn,
+.delete-btn{
+width:100%;
+}
+
 }
 </style>

@@ -73,13 +73,44 @@ const chartOptions = {
 <style scoped>
 .chart-card {
   background: white;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 25px;
+  border-radius: 14px;
   margin-top: 30px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  transition: .3s;
+}
+
+.chart-card:hover {
+  box-shadow: 0 12px 24px rgba(0,0,0,.15);
+}
+
+.chart-card h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .chart-wrapper {
-  height: 400px;
+  width: 100%;
+  height: 420px;
+}
+
+@media(max-width:768px){
+
+.chart-wrapper{
+height:330px;
+}
+
+}
+
+@media(max-width:576px){
+
+.chart-card{
+padding:18px;
+}
+
+.chart-wrapper{
+height:260px;
+}
+
 }
 </style>

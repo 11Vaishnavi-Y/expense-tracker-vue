@@ -25,29 +25,51 @@ const store = useExpenseStore()
 
 <style scoped>
 .summary-cards {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
   margin-bottom: 30px;
-  flex-wrap: wrap;
 }
 
 .card {
-  flex: 1;
-  min-width: 220px;
   background: white;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 24px;
+  border-radius: 14px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  transition: all .3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,.15);
 }
 
 .card h3 {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  color: #555;
+  font-size: 20px;
 }
 
 .card p {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
   color: #1976d2;
+}
+
+@media(max-width:576px){
+
+.card{
+padding:18px;
+}
+
+.card h3{
+font-size:18px;
+}
+
+.card p{
+font-size:26px;
+}
+
 }
 </style>

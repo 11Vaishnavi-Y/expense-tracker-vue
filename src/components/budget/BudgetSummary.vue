@@ -49,32 +49,50 @@ const budgetUsed = computed(() => {
 
 <style scoped>
 .budget-summary {
-  margin-top: 30px;
+  margin-top: 35px;
 }
 
 .summary-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
   gap: 20px;
-  flex-wrap: wrap;
 }
 
 .card {
-  flex: 1;
-  min-width: 220px;
   background: white;
-  padding: 20px;
+  padding: 24px;
+  border-radius: 14px;
   text-align: center;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,.15);
 }
 
 .card h3 {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  color: #555;
 }
 
 .card p {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
   color: #1976d2;
+  word-break: break-word;
+}
+
+@media(max-width:576px){
+
+.card{
+padding:18px;
+}
+
+.card p{
+font-size:24px;
+}
+
 }
 </style>

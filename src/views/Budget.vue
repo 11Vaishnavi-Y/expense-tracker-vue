@@ -27,10 +27,42 @@ import BudgetProgress from '../components/budget/BudgetProgress.vue'
 <style scoped>
 .layout {
   display: flex;
+  min-height: calc(100vh - 60px);
 }
 
 .content {
   flex: 1;
-  padding: 20px;
+  padding: 30px;
+  background: #f4f6f9;
+}
+
+.content h1 {
+  margin-bottom: 25px;
+  color: #333;
+}
+
+@media(max-width:768px){
+
+.layout{
+flex-direction:column;
+}
+
+.content{
+padding:20px;
+}
+
+}
+
+@media(max-width:576px){
+
+.content{
+padding:15px;
+}
+
+.content h1{
+text-align:center;
+font-size:28px;
+}
+
 }
 </style>
