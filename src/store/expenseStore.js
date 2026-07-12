@@ -1,10 +1,16 @@
 import { defineStore } from 'pinia'
 
 export const useExpenseStore = defineStore('expense', {
-  state: () => ({
- transactions: JSON.parse(localStorage.getItem('transactions')) || [],
-  editingTransaction: null  
-  }),
+ state: () => ({
+  transactions: (() => {
+    try {
+      return JSON.parse(localStorage.getItem('transactions')) || []
+    } catch {
+      return []
+    }
+  })(),
+  editingTransaction: null
+}),
 
   getters: {
     totalIncome: (state) =>

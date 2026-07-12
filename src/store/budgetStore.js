@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 export const useBudgetStore = defineStore('budget', {
   state: () => ({
-    monthlyBudget: Number(localStorage.getItem('monthlyBudget')) || 0
+  monthlyBudget: Number(localStorage.getItem('monthlyBudget') || 0)
   }),
 
   actions: {
